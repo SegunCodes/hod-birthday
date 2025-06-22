@@ -276,7 +276,7 @@ h1, h2 {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     background-color: var(--card-bg);
-    min-height: 450px;
+    min-height: 500px;
     display: flex;
     align-items: center; 
 }
