@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, HOD!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        // Disable browser's scroll restoration before it can act
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        // Force scroll to top before DOMContentLoaded fires fully
+        window.scrollTo(0, 0);
+    </script>
+</head>
+<body>
+
+    <main class="container">
+        <div class="copyright">With Love By SegunCodes</div>
+
+        <section class="hero-section" id="hero">
+            <div class="particle-container"></div> <div class="hero-content">
+                <img src="drj.jpg" alt="Our Esteemed HOD" class="hod-picture">
+                <h1 class="main-title">Happy Birthday, <span class="hod-name">Dr. Johnson</span>!</h1>
+                <p class="subtitle">A celebration of your incredible leadership and spirit.</p>
+                <button class="explore-btn" id="exploreBtn">
+                    Embark on the Celebration! <span class="arrow">↓</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="wishes-section" id="wishes">
+            <div class="confetti-container-wishes"></div>
+            <h2>Heartfelt Wishes from the Team</h2>
+
+            <div class="wishes-carousel-wrapper">
+                <button class="carousel-nav prev" id="carouselPrev">
+                    <span class="arrow-icon">&#10094;</span> </button>
+                <div class="wishes-carousel" id="wishesCarousel">
+                    <div class="wish-item">
+                        <img src="bobby.jpg" alt="Bobby" class="member-pic-carousel">
+                        <p class="wish-message-carousel">
+                            "Many happy returns of the day, sir! We celebrate you today and always. 
+                            Your dedication to the media ministry and the way you've nurtured our talents is deeply appreciated. 
+                            May God's favor locate you in new dimensions this new year. Long life and prosperity shall be your portion. 
+                            We pray for continued wisdom, good health, and divine enlargement in all your endeavors"</p>
+                        <p class="member-name-carousel">- Bobby</p>
+                    </div>
+
+                    <div class="wish-item">
+                        <img src="lara.jpg" alt="Lara" class="member-pic-carousel">
+                        <p class="wish-message-carousel">
+                            "Happy Birthday my amazing HOD!!!! Thank you for everything you do on behalf of the team. 
+                            Thank you for the corrections and always encouraging us to take our service to the next level. 
+                            This year will be dominion filled and there will be no confinement in your life sir. 
+                            Have a wonderful birthday, a leader like you deserve to be celebrated everyday."</p>
+                        <p class="member-name-carousel">- Lara</p>
+                    </div>
+
+                    <div class="wish-item">
+                        <img src="mc.jpg" alt="MC Bukkon" class="member-pic-carousel">
+                        <p class="wish-message-carousel">
+                            "You’re a rare gem and a great leader sir. 
+                            You’re a blessing not in disguise but an obvious one indeed. 
+                            Thank you for all you do sir"</p>
+                        <p class="member-name-carousel">- MC Bukkon</p>
+                    </div>
+
+                    <div class="wish-item">
+                        <img src="segun.jpg" alt="Segun" class="member-pic-carousel">
+                        <p class="wish-message-carousel">
+                            "Happy birthday Dr Johnson! You lead by example, and we are truly grateful. 
+                            Thank you for your unwavering support and inspiration. 
+                            God bless you abundantly!"</p>
+                        <p class="member-name-carousel">- Segun</p>
+                    </div>
+
+                    <div class="wish-item">
+                        <img src="kenny.jpg" alt="Kenny" class="member-pic-carousel">
+                        <p class="wish-message-carousel">
+                            "Happy birthday sir, wishing more years on earth with lots and loads of happiness, success, and favour. 
+                            It’s a blessing to learn and grow under your guidance. 
+                            May your new year be as impactful and remarkable as your leadership has been to us."</p>
+                        <p class="member-name-carousel">- Kenny</p>
+                    </div>
+                    </div>
+                <button class="carousel-nav next" id="carouselNext">
+                    <span class="arrow-icon">&#10095;</span> </button>
+            </div>
+            <div class="carousel-pagination" id="carouselPagination"></div>
+            <br><br>
+            <h2>We Celebrate You!!!!</h2>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
