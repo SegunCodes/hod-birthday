@@ -140,6 +140,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Explore Button "Crazy" Effect & Transition ---
     exploreBtn.addEventListener('click', () => {
+        backgroundMusic.play().then(() => {
+            // Success: music started
+            isPlaying = true;
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'inline-block';
+        }).catch(e => {
+            // Failure: Autoplay blocked even after click (rare, but possible if interaction not strong enough)
+            console.error("Music play failed even after click:", e);
+            // Ensure controls reflect paused state
+            isPlaying = false;
+            playIcon.style.display = 'inline-block';
+            pauseIcon.style.display = 'none';
+        });
+
         const confettiContainer = document.createElement('div');
         confettiContainer.classList.add('confetti-container');
         document.body.appendChild(confettiContainer);
@@ -154,9 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
             confetti.style.animationDelay = `${Math.random() * 0.5}s`;
             confettiContainer.appendChild(confetti);
         }
-
-        const clickSound = new Audio('click-sound.mp3');
-        clickSound.play();
 
         setTimeout(() => {
             confettiContainer.remove();
@@ -225,39 +236,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicToggleBtn = document.getElementById('musicToggle');
     const playIcon = document.querySelector('.icon-play');
     const pauseIcon = document.querySelector('.icon-pause');
+    
+    let isPlaying = false;
 
-    if (musicToggleBtn && backgroundMusic) {
-        let isPlaying = false;
+    backgroundMusic.addEventListener('ended', () => {
+        backgroundMusic.currentTime = 0;
+        backgroundMusic.play();
+    });
 
-        backgroundMusic.play().then(() => {
-            isPlaying = true;
-            playIcon.style.display = 'none';
-            pauseIcon.style.display = 'inline-block';
-        }).catch(e => {
-            console.warn("Autoplay blocked, user interaction required for music.", e);
+    musicToggleBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            backgroundMusic.pause();
             isPlaying = false;
             playIcon.style.display = 'inline-block';
             pauseIcon.style.display = 'none';
-        });
-
-        backgroundMusic.addEventListener('ended', () => {
-            backgroundMusic.currentTime = 0;
-            backgroundMusic.play();
-        });
-
-        musicToggleBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                backgroundMusic.pause();
-                isPlaying = false;
-                playIcon.style.display = 'inline-block';
-                pauseIcon.style.display = 'none';
-            } else {
-                backgroundMusic.play().then(() => {
-                    isPlaying = true;
-                    playIcon.style.display = 'none';
-                    pauseIcon.style.display = 'inline-block';
-                }).catch(e => console.error("Could not play music:", e));
-            }
-        });
-    }
+        } else {
+            backgroundMusic.play().then(() => {
+                isPlaying = true;
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'inline-block';
+            }).catch(e => console.error("Could not play music:", e));
+        }
+    });
 });
